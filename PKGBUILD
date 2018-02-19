@@ -5,8 +5,8 @@
 # 						Contributor: Judd Vinet <jvinet.zeroflux.org>
 
 pkgname=dhcpcd
-pkgver=6.11.5
-pkgrel=1
+pkgver=7.0.1
+pkgrel=2
 pkgdesc="RFC2131 compliant DHCP client daemon"
 url="http://roy.marples.name/projects/dhcpcd/"
 arch=('x86_64')
@@ -22,7 +22,7 @@ backup=('etc/dhcpcd.conf')
 options=('emptydirs')  # We Need the Empty /var/lib/dhcpcd Directory
 source=("http://roy.marples.name/downloads/${pkgname}/${pkgname}-$pkgver.tar.xz"
         dhcpcd.conf)
-sha1sums=('6e362f8fcb7e39759ede1ae0f4f98d29f59eb487'
+sha1sums=('745526c021223413c3e08653df04875c0323e415'
           '341e1ba3b10367dad181403f112e110a47a19aa6')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
@@ -55,9 +55,8 @@ package() {
   make DESTDIR="${pkgdir}" install
 
   # Install License
-  install -d "$pkgdir/usr/share/licenses/${pkgname}"
-  sed 26q "$srcdir/${pkgname}-$pkgver/control.h" \
-      >>"$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+  install -Dm644 "${srcdir}/${pkgname}-${pkgver}/LICENSE" \
+	  "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
   # Set Options in /etc/dhcpcd.conf
   install -m644 "${srcdir}/dhcpcd.conf" "${pkgdir}/etc/dhcpcd.conf"
