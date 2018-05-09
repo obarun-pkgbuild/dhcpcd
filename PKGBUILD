@@ -5,7 +5,7 @@
 # 						Contributor: Judd Vinet <jvinet.zeroflux.org>
 
 pkgname=dhcpcd
-pkgver=7.0.1
+pkgver=7.0.4
 pkgrel=2
 pkgdesc="RFC2131 compliant DHCP client daemon"
 url="http://roy.marples.name/projects/dhcpcd/"
@@ -20,9 +20,9 @@ optdepends=('openresolv: resolvconf support'
 provides=('dhcp-client')
 backup=('etc/dhcpcd.conf')
 options=('emptydirs')  # We Need the Empty /var/lib/dhcpcd Directory
-source=("http://roy.marples.name/downloads/${pkgname}/${pkgname}-$pkgver.tar.xz"
+source=("https://roy.marples.name/downloads/$pkgname/$pkgname-$pkgver.tar.xz"
         dhcpcd.conf)
-sha1sums=('745526c021223413c3e08653df04875c0323e415'
+sha1sums=('0ac98499f8289e24e017ae35bb3a5fe7287679c2'
           '341e1ba3b10367dad181403f112e110a47a19aa6')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
